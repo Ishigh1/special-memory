@@ -40,7 +40,7 @@ function master(msg) {
 			throw err;
 		}
 		test = 1;
-		if (result[0] == 'undefined) {
+		if (result[0] == 'undefined') {
 		    echo("...");
 		}
 		if (result[0] !== 'undefined' && result[0].Master) {
