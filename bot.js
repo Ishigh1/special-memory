@@ -39,6 +39,10 @@ function master(msg) {
 		if (err) {
 			throw err;
 		}
+		test = 1;
+		if (result[0] == 'undefined) {
+		    echo("...");
+		}
 		if (result[0] !== 'undefined' && result[0].Master) {
 			msg.guild.members.map(member => 
 					      	{if(msg.content.indexOf(member.user.username) != -1) {
