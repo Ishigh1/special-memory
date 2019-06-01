@@ -30,7 +30,8 @@ function addtobase(bdd, server_id, member_id, arg, value) {
 				})}
 		else {
 			sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
-		});
+		})};
+	});
 }
 
 function master(msg) {
