@@ -52,6 +52,6 @@ client.on('message', msg => {
 			master(msg);
 			return;
 		}
-        });
+        }});
 
 client.login(process.env.BOT_KEY);
