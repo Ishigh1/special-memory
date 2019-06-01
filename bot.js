@@ -48,7 +48,7 @@ function master(msg) {
 
 client.on('message', msg => {
         if(msg.channel.type == "text") {
-		else if (msg.content.indexOf("!master") != -1) {
+		if (msg.content.indexOf("!master") != -1) {
 			master(msg);
 			return;
 		}
