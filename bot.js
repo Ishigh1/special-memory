@@ -41,7 +41,7 @@ function master(msg) {
 		}
 		test = 1;
 		if (result[0] == 'undefined') {
-		    echo("...");
+		    console.log("...");
 		}
 		if (result[0] !== 'undefined' && result[0].Master) {
 			msg.guild.members.map(member => 
