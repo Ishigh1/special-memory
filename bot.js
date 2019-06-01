@@ -24,11 +24,9 @@ function master(msg) {
 		}
 		if (result[0].Master) {
 			msg.guild.members.map(member => 
-					      	{if(msg.content.indexOf(member.user.username) != -1)
-						{
+					      	{if(msg.content.indexOf(member.user.username) != -1) {
 							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
 						}});
-					}
 		}
 		else {
 			sql.query("SELECT * FROM `Activity_bot` WHERE `Server_ID` = " + msg.member.guild.id + " AND `Master` = 1", function (err, result, fields) {
