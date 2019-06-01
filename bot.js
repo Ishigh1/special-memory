@@ -17,6 +17,22 @@ client.on('ready', () => {
 	});
 });
 
+function addtobase(bdd, server_id, member_id, arg, value) {
+	sql.query("SELECT * FROM `" + bdd + "` WHERE `Server_ID` = " + server_id + " AND `Name_ID` = " + member_id, function (err, result, fields) {
+		if (err) {
+			throw err;
+		}
+		if (typeof result[0] == 'undefined') {
+			sql.query("INSERT INTO `" + bdd + "` (`Server_ID`, `Name_ID`, `" + arg + "`) VALUES (" + server_id + ", " + member_id + ", " + value + ")", function (err) {
+					if (err) {
+						throw err;
+					}
+				});
+		else {
+			sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
+		});
+}
+
 function master(msg) {
 	sql.query("SELECT * FROM `Valchercher1` WHERE `Server_ID` = " + msg.member.guild.id + " AND `Name_ID` = " + msg.member.id, function (err, result, fields) {
 		if (err) {
@@ -25,7 +41,7 @@ function master(msg) {
 		if (result[0] != 'undefined' && result[0].Master) {
 			msg.guild.members.map(member => 
 					      	{if(msg.content.indexOf(member.user.username) != -1) {
-							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
+							addtobase("Valchercher1", msg.member.guild.id, msg.member.id, "Master", 1);
 						}});
 		}
 		else {
@@ -35,9 +51,8 @@ function master(msg) {
 				}
 				if (typeof result[0] == 'undefined') {
 					msg.guild.members.map(member => 
-					      	{if(msg.content.indexOf(member.user.username) != -1)
-						{
-							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
+					      	{if(msg.content.indexOf(member.user.username) != -1) {
+							addtobase("Valchercher1", msg.member.guild.id, msg.member.id, "Master", 1);
 						}});
 				}
 			});
