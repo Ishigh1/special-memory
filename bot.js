@@ -27,7 +27,7 @@ function master(msg) {
 					      	{if(msg.content.indexOf(member.user.username) != -1)
 						{
 							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
-						});
+						}});
 					}
 		}
 		else {
@@ -40,7 +40,7 @@ function master(msg) {
 					      	{if(msg.content.indexOf(member.user.username) != -1)
 						{
 							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
-						});
+						}});
 				}
 			});
 		}
