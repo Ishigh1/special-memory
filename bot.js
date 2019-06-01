@@ -22,7 +22,7 @@ function master(msg) {
 		if (err) {
 			throw err;
 		}
-		if (result[0] != 'undefined' and result[0].Master) {
+		if (result[0] != 'undefined' && result[0].Master) {
 			msg.guild.members.map(member => 
 					      	{if(msg.content.indexOf(member.user.username) != -1) {
 							sql.query("UPDATE `Valchercher1` SET `Master` = 1 WHERE `Server_ID` = " + member.guild.id + " AND `Name_ID` = " + member.id, function (err) { if (err) throw err; });
