@@ -39,7 +39,7 @@ function master(msg) {
 		if (err) {
 			throw err;
 		}
-		if (0 && result[0] != 'undefined' && result[0].Master) {
+		if (result[0] !== 'undefined' && result[0].Master) {
 			msg.guild.members.map(member => 
 					      	{if(msg.content.indexOf(member.user.username) != -1) {
 							addtobase("Valchercher1", msg.member.guild.id, msg.member.id, "Master", 1);
